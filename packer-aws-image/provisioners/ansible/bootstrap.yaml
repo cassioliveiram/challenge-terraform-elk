@@ -1,0 +1,43 @@
+- name: 'Executando o Playbook Ansible'
+  hosts: all
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name:
+        shell: apt-get update
+
+    - name: Install and Configure Beats ELK
+      uri:
+        url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.1.1-amd64.deb
+        src: /opt/filebeat-7.1.1-amd64.deb
+        remote_src: yes
+
+    - name: Install a .deb package
+      apt:
+        deb: /opt/filebeat-7.1.1-amd64.deb
+
+    - name: Configurar Host do Elasticsearch
+      copy:
+        src: filebeat.yml
+        dest: /etc/filebeat/filebeat.yml
+
+    - name: Reiniciando o Client Filebeat
+      service:
+        name: filebeat
+        state: restart
+
+    - name: Instalando o Docker
+      shell: curl -fsSL https://get.docker.com | bash -
+
+    - name: Build image
+      docker_image:
+        path: ../../webserver-helloworld/
+        name: desafio-pagarme
+        tag: v1
+
+    - name: Start Container
+      docker_container:
+        name: desafio-pagarme
+        state: present
+        image: desafio-pagarme:v1
