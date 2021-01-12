@@ -10,6 +10,12 @@ variable "image_id" {
   description = "The image of your instance"
 }
 
+variable "iam_instance_profile" {
+  default = null
+  type = string
+  description = "The iam role for instance"
+}
+
 variable "tags" {
   default     = {}
   type        = map(string)

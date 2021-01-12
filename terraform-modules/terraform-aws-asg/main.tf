@@ -6,6 +6,7 @@ resource "aws_launch_configuration" "moreira-lab" {
   user_data         = var.user_data
   enable_monitoring = var.enable_monitoring
   ebs_optimized     = var.ebs_optimized
+//  iam_instance_profile = aws_iam_role.ec2-role.name
 
   dynamic "root_block_device" {
     for_each = var.root_block_device
@@ -33,6 +34,8 @@ resource "aws_launch_configuration" "moreira-lab" {
   lifecycle {
     create_before_destroy = true
   }
+
+//  depends_on = [aws_iam_instance_profile.moreira-lab]
 }
 
 
@@ -42,9 +45,53 @@ resource "aws_autoscaling_group" "moreira-lab" {
   launch_configuration = aws_launch_configuration.moreira-lab.name
   max_size             = 2
   min_size             = 1
-  //tags                 = var.tags
 
   lifecycle {
     create_before_destroy = true
   }
 }
+
+//resource "aws_iam_instance_profile" "moreira-lab" {
+//  name = "test_profile"
+//  role = aws_iam_role.ec2-role.name
+//}
+//
+//resource "aws_iam_role_policy" "iam-role-ec2" {
+//  role = aws_iam_role.ec2-role.id
+//  policy = <<EOF
+//{
+//    "Version": "2012-10-17",
+//    "Statement": [
+//        {
+//            "Action": "sts:AssumeRole",
+//            "Principal": {
+//               "Service": "ec2.amazonaws.com"
+//            },
+//            "Effect": "Allow",
+//            "Sid": ""
+//        }
+//    ]
+//}
+//EOF
+//}
+//
+//resource "aws_iam_role" "ec2-role" {
+//  name = "ec2-logs-elasticsearch"
+//  path = "/"
+//
+//  assume_role_policy = <<EOF
+//{
+//    "Version": "2012-10-17",
+//    "Statement": [
+//        {
+//            "Action": "sts:AssumeRole",
+//            "Principal": {
+//               "Service": "ec2.amazonaws.com"
+//            },
+//            "Effect": "Allow",
+//            "Sid": "arn:aws:iam::344965637185:*"
+//        }
+//    ]
+//}
+//EOF
+//}

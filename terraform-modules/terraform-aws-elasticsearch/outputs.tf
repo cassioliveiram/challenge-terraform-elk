@@ -13,6 +13,7 @@ output "arn" {
   value       = aws_elasticsearch_domain.desafio-pagarme.arn
   description = "Elasticsearch ARN"
 }
+
 output "my_own_ip" {
   value = data.http.my_own_public_ip.body
 }

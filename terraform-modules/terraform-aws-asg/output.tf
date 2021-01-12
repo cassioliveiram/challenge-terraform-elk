@@ -9,3 +9,4 @@ output "asg-name" {
 output "my_own_ip" {
   value = data.http.my_own_public_ip.body
 }
+
