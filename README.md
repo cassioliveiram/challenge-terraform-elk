@@ -26,7 +26,6 @@ Este repositorio está dividido entre tipos de recurso:
 
 Cada recurso tem suas proprias dependencias e elas estao descritas em seus arquivos de readme.
 
-
 ### Sobre a Logica utilizada
 
 Containers: 
@@ -39,6 +38,15 @@ Packer-aws-image:
 Terraform-modules:
   A definicao do codigo terraform responsavel por iniciar o domain elasticsearch na aws e um autoscaling-group utilizando a aws_image criada pelo Packer.
   
+
+### Arquitetura ELK
+* A Arquitetura padrao do ELK segue o fluxo abaixo: 
+
+![elk-archtecture](assets/images/arch-elk.png)
+
+* Foi implementado a coleta e geração de logs baseados em container, seguindo o fluxo de arquitetura como o do exemplo abaixo:
+
+![els-architecture-container](assets/images/arch-elk-containers.png)
 
 ### Inicio dos Testes(ainda manual).
 
