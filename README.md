@@ -48,8 +48,13 @@ Terraform-modules:
 
 ![els-architecture-container](assets/images/arch-elk-containers.png)
 
-### Inicio dos Testes(ainda manual).
+### Elasticsearch Link
+https://search-moreirac-learn-toxx3eu4feqqe3cbv5gj5ajyei.us-west-2.es.amazonaws.com/_plugin/kibana/app/kibana#/
 
+![elasticsearch](assets/images/elasticsearch.png)
+
+
+### Inicio dos Testes(ainda manual).
 Criei uma instancia, instalei o filebeat e o logstash e os configurei para enviar os primeiros logs para o elasticsearch.
 
 * Para enviar os logs:
