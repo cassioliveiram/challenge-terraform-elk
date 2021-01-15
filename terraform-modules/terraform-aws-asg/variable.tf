@@ -1,3 +1,9 @@
+variable "aws_region" {
+  default     = "us-west-2"
+  type        = string
+  description = "AWS Region to create resources"
+}
+
 variable "name" {
   default = "moreira-lab"
   type = string
@@ -22,6 +28,12 @@ variable "tags" {
   description = "Map containing tags to associate to AWS resources."
 }
 
+variable "security_groups" {
+  default = []
+  type = list(string)
+  description = "A list of associated security group IDS"
+}
+
 variable "ebs_optimized" {
   default = true
   type = bool
@@ -29,7 +41,7 @@ variable "ebs_optimized" {
 }
 
 variable "instance_type" {
-  default = "t3.micro"
+  default = "t3.medium"
   type = string
   description = "Define instance type"
 }
