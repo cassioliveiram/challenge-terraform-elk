@@ -41,6 +41,7 @@
         name: application-example
         image: public.ecr.aws/s4p5d5l9/logs-generator:v1
         state: started
+        restart_policy: always
 
     - name: Start Logstash
       docker_container:
@@ -56,9 +57,9 @@
         name: filebeat
         image: public.ecr.aws/s4p5d5l9/filebeat-challenge-pagarme:v1
         state: started
-        restart_policy: unless-stopped
+        restart_policy: always
         links:
           - logstash
-        devices:
+        volumes:
           - "/var/lib/docker/containers:/usr/share/dockerlogs/data:ro"
-          - "/var/run/docker.sock:/var/run/docker.sock"
+          - "/var/run/docker.sock:/var/run/docker.sock:ro"
