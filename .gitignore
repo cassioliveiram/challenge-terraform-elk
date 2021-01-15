@@ -2,3 +2,5 @@
 .terraform/
 .terragrunt-cache/
 terraform.*
+*.pem
+*.plan
