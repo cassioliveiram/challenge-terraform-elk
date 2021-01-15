@@ -67,7 +67,7 @@ variable "enable_monitoring" {
 variable "root_block_device" {
   default = [{
     volume_type           = "gp2"
-    volume_size           = 8
+    volume_size           = 30
     encrypted             = true
     iops                  = 0
     delete_on_termination = true

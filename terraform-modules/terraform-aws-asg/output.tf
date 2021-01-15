@@ -5,8 +5,3 @@ output "launch-configuration-name" {
 output "asg-name" {
   value = aws_autoscaling_group.moreira-lab.name
 }
-
-output "my_own_ip" {
-  value = data.http.my_own_public_ip.body
-}
-

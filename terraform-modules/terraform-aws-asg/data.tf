@@ -14,6 +14,4 @@ data "aws_ami" "img-packer" {
   owners = ["344965637185"] # Cassio Moreira
 }
 
-data "http" "my_own_public_ip" {
-  url = "http://ipv4.icanhazip.com"
-}
+data "aws_caller_identity" "current" {}
