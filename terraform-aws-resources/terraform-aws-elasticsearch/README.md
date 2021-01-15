@@ -1,3 +1,6 @@
+## Terraform aws asg
+Este codigo terraform, cria um autoscaling group com uma instancia ec2, voce pode consultar as variaveis disponiveis para serem utilizadas/atualizadas nas tabelas abaixo. 
+
 ## Requirements
 
 | Name | Version |

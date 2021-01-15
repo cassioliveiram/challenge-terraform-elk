@@ -1,17 +1,20 @@
-## Requirements
+## Terraform aws asg
+Este codigo terraform, cria um autoscaling group com uma instancia ec2, voce pode consultar as variaveis disponiveis para serem utilizadas/atualizadas nas tabelas abaixo. 
+
+### Requirements
 
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
 | aws | ~> 3.23.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | aws | ~> 3.23.0 |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -29,7 +32,7 @@
 | tags | Map containing tags to associate to AWS resources. | `map(string)` | `{}` | no |
 | user\_data | An script to run at boot of instance. You can customize values and set default things you want run at launch of instance | `string` | `null` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|

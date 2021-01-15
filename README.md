@@ -22,7 +22,7 @@ O que avaliaremos aqui:
 Este repositorio está dividido entre tipos de recurso:
    * [containers](containers)
    * [packer](packer-aws-image)
-   * [terraform-modules](terraform-modules)
+   * [terraform-modules](terraform-aws-resources)
 
 Cada recurso tem suas proprias dependencias e elas estao descritas em seus arquivos de readme.
 
