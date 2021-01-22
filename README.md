@@ -1,4 +1,4 @@
-## Challenge Terraform ELK
+## Challenge Terraform ELK (Infraestrutura Desligada)
 
 ### Sobre o Desafio
 
